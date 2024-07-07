@@ -12,6 +12,7 @@ router.get('/', function(req,res) {
     res.render('form', {title: 'Registration form' });
 });
 
+
 router.post('/', 
     [
     check ('name')
@@ -23,18 +24,21 @@ router.post('/',
     ],
 
     function(req,res) { 
-    console.log(req.body);
-    res.render('form', {title: 'Registration form',});
-    
+        
+        console.log(req.body);
+        //res.render('form', {title: 'Registration form',});
+        
     const errors = validationResult(req);
         if (errors.isEmpty()) {
-            res.send ('Thank you for your registration!');
+            console.log('No Error');
+            res.send('Thank you for your registration!');
         } else {
-        res.render('form', {
-            title: 'Registration form',
-            errors: errors.array(),
-            data: req.body,
-        });
+            console.log('Error');
+            res.render('form', {
+                title: 'Registration form',
+                errors: errors.array(),
+                data: req.body,
+            });
         }
     }   
 );
