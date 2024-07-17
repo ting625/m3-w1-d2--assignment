@@ -1,9 +1,12 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const { check, validationResult} = require ('express-validator');
 
 const router = express.Router();
-const Registration = mongoose.model('Registration');
+
+//const mongoose = require('mongoose');
+//const Registration = mongoose.model('Registration');
+
+const Registration = require('../models/Registration');
 
 /*
 router.get('/', function(req,res) {
@@ -11,8 +14,8 @@ router.get('/', function(req,res) {
 });
 */
 
-router.get('/', function(req,res) {
-    res.render('form', {title: 'Registration form' });
+router.get('/registrations', function(req,res) {
+    res.render('index', {title: 'Listing registrations' });
 });
 
 

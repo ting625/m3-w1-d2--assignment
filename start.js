@@ -1,13 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const app = require('./app');
-
-require('./models/Registration');
 
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
-    useUnifiedToplogy: true
-
+    useUnifiedTopology: true
 });
 
 mongoose.connection
@@ -20,6 +16,8 @@ mongoose.connection
         
     })
 
+require('./models/Registration');
+const app = require('./app');
 const server = app.listen(3000, function() {
     console.log(`Express is runnung on port ${server.address().port}`);
 });
