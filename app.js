@@ -10,5 +10,6 @@ app.set('view engine' , 'pug');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded ({extended: true}));
 app.use('/', routes);
+app.use(express.static('public'));
 
 module.exports = app;

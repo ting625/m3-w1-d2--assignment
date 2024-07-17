@@ -2,12 +2,15 @@ doctype html
 html 
   head 
     title= `${title}`
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/style.css')
 
     body 
-      h1 My Amazing App 
+      div.container.listing-reg
+        h1 My Amazing App 
 
-      block content 
-        if errors 
-          ul 
-            for error in errors 
-              li= error.msg 
+        block content 
+          if errors 
+            ul 
+              for error in errors 
+                li= error.msg 
